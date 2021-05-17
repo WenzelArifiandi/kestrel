@@ -16,4 +16,7 @@
 
     <style name="Theme.Splash" parent="Theme.MaterialComponents.Light.NoActionBar"/>
 
+    <style name="BottomNavTextViewStyle">
+        <item name="fontFamily">@font/montserrat</item>
+    </style>
 </resources>
