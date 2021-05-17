@@ -4,5 +4,5 @@
     <string name="title_camera">Capture</string>
     <string name="title_history">History</string>
     <string name="hand_back">Hand Back</string>
-    <string name="sign_language_translator">Sign Language <br/> Translator</string>
+    <string name="sign_language_translator">Sign Language\nTranslator</string>
 </resources>
