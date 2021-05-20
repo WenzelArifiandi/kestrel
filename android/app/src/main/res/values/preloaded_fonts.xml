@@ -2,7 +2,9 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/montserrat</item>
+        <item>@font/nunito_light</item>
         <item>@font/poppins</item>
         <item>@font/poppins_medium</item>
+        <item>@font/port_lligat_sans</item>
     </array>
 </resources>
