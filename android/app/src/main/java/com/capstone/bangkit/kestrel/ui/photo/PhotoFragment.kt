@@ -7,6 +7,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -126,8 +127,10 @@ class PhotoFragment : Fragment() {
         }
 
         binding.btnProcess.setOnClickListener {
-            setVisibility(!closed)
-            setAnimation(!closed)
+            if(!closed) {
+                setVisibility(closed)
+                setAnimation(closed)
+            }
             processImage()
             showResult()
         }
