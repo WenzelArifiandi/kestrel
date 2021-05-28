@@ -126,6 +126,8 @@ class PhotoFragment : Fragment() {
         }
 
         binding.btnProcess.setOnClickListener {
+            setVisibility(!closed)
+            setAnimation(!closed)
             processImage()
             showResult()
         }
@@ -267,7 +269,6 @@ class PhotoFragment : Fragment() {
                     e.printStackTrace()
                     e.message?.let { displayExceptionMessage(it) }
                 }
-
             }
         }
     }
