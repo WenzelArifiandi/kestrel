@@ -127,10 +127,6 @@ class PhotoFragment : Fragment() {
         }
 
         binding.btnProcess.setOnClickListener {
-            if(!closed) {
-                setVisibility(closed)
-                setAnimation(closed)
-            }
             processImage()
             showResult()
         }
