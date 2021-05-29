@@ -14,4 +14,8 @@
     <string name="gallery">Gallery</string>
     <string name="photo">Photo</string>
     <string name="result">Result</string>
+    <string name="alphabet">alphabet</string>
+    <string name="home_page">Home Page</string>
+    <string name="a">A</string>
+    <string name="history">History</string>
 </resources>

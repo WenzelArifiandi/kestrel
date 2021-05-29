@@ -7,7 +7,6 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -149,13 +148,13 @@ class PhotoFragment : Fragment() {
         try {
             val imageTensorIndex = 0
             val imageShape: IntArray =
-                tflite?.getInputTensor(imageTensorIndex)!!.shape() // {1, height, width, 3}
+                tflite?.getInputTensor(imageTensorIndex)!!.shape()
             imageSizeY = imageShape[1]
             imageSizeX = imageShape[2]
             val imageDataType: DataType = tflite?.getInputTensor(imageTensorIndex)!!.dataType()
             val probabilityTensorIndex = 0
             val probabilityShape: IntArray =
-                tflite?.getOutputTensor(probabilityTensorIndex)!!.shape() // {1, NUM_CLASSES}
+                tflite?.getOutputTensor(probabilityTensorIndex)!!.shape()
             val probabilityDataType: DataType =
                 tflite?.getOutputTensor(probabilityTensorIndex)!!.dataType()
             inputImageBuffer = TensorImage(imageDataType)
@@ -194,7 +193,7 @@ class PhotoFragment : Fragment() {
     }
 
     private fun loadModel(activity: Activity): MappedByteBuffer {
-        val fileDescriptor = activity.assets.openFd("model_metadata.tflite")
+        val fileDescriptor = activity.assets.openFd("newmodel_metadata.tflite")
         val inputStream = FileInputStream(fileDescriptor.fileDescriptor)
         val fileChannel = inputStream.channel
         val startOffset = fileDescriptor.startOffset
