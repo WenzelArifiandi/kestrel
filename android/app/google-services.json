@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "552189936589",
+    "project_id": "modular-sorter-314200",
+    "storage_bucket": "modular-sorter-314200.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:552189936589:android:e4de3f5761ce144755ba84",
+        "android_client_info": {
+          "package_name": "com.capstone.bangkit.kestrel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJsoLIqtrIjDYyJk2kpudLdR_IrLnjtp4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
