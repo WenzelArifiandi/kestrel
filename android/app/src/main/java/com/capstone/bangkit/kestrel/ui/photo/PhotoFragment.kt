@@ -12,13 +12,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.capstone.bangkit.kestrel.R
 import com.capstone.bangkit.kestrel.databinding.FragmentPhotoBinding
-import com.google.android.material.snackbar.Snackbar
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.support.common.FileUtil
@@ -170,7 +170,7 @@ class PhotoFragment : Fragment() {
     }
 
     private fun displayExceptionMessage(message: String) {
-        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun openActionGetContent() {

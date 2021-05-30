@@ -70,7 +70,6 @@ object AlphabetData {
                 alphabet.name = alphabetNames[position]
                 alphabet.image = alphabetImages[position]
                 list.add(alphabet)
-
             }
             return list
         }
