@@ -193,7 +193,7 @@ class PhotoFragment : Fragment() {
     }
 
     private fun loadModel(activity: Activity): MappedByteBuffer {
-        val fileDescriptor = activity.assets.openFd("newmodel_metadata.tflite")
+        val fileDescriptor = activity.assets.openFd("fix_model_metadata.tflite")
         val inputStream = FileInputStream(fileDescriptor.fileDescriptor)
         val fileChannel = inputStream.channel
         val startOffset = fileDescriptor.startOffset

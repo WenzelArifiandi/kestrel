@@ -19,4 +19,5 @@
     <string name="a">A</string>
     <string name="history">History</string>
     <string name="take_picture">Take Picture</string>
+    <string name="date">Date</string>
 </resources>

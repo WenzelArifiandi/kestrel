@@ -14,7 +14,8 @@
         android:theme="@style/Theme.SignLanguage">
         <activity
             android:name=".ui.splash.SplashActivity"
-            android:theme="@style/Theme.Splash">
+            android:theme="@style/Theme.Splash"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
