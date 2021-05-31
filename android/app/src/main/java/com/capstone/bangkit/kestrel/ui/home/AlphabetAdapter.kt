@@ -7,9 +7,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.capstone.bangkit.kestrel.databinding.ItemRowAlphaBinding
 
-class AlphabetAdapter(private val listAlpha : ArrayList<Alphabet>): RecyclerView.Adapter<AlphabetAdapter.ListViewHolder>() {
+class AlphabetAdapter(private val listAlpha: ArrayList<Alphabet>) :
+    RecyclerView.Adapter<AlphabetAdapter.ListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val binding = ItemRowAlphaBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemRowAlphaBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ListViewHolder(binding)
     }
 
@@ -19,7 +21,8 @@ class AlphabetAdapter(private val listAlpha : ArrayList<Alphabet>): RecyclerView
 
     override fun getItemCount(): Int = listAlpha.size
 
-    inner class ListViewHolder(private val binding: ItemRowAlphaBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ListViewHolder(private val binding: ItemRowAlphaBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(alphabet: Alphabet) {
             with(binding) {
                 Glide.with(itemView.context)

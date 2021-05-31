@@ -19,6 +19,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.capstone.bangkit.kestrel.R
 import com.capstone.bangkit.kestrel.databinding.FragmentPhotoBinding
+import com.capstone.bangkit.kestrel.helper.DateHelper
+import com.google.firebase.firestore.FirebaseFirestore
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.support.common.FileUtil
@@ -36,9 +38,12 @@ import java.io.IOException
 import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
 import java.util.*
+import kotlin.collections.HashMap
 
 @Suppress("DEPRECATION")
 class PhotoFragment : Fragment() {
+
+    private val db = FirebaseFirestore.getInstance()
 
     private var _binding: FragmentPhotoBinding? = null
     private val binding get() = _binding!!
@@ -122,12 +127,13 @@ class PhotoFragment : Fragment() {
             tflite = Interpreter(loadModel(requireActivity()))
         } catch (e: Exception) {
             e.printStackTrace()
-            e.message?.let { displayExceptionMessage(it) }
+            e.message?.let { displayMessage(it) }
         }
 
         binding.btnProcess.setOnClickListener {
             processImage()
             showResult()
+            saveData()
         }
 
     }
@@ -165,11 +171,11 @@ class PhotoFragment : Fragment() {
             tflite?.run(inputImageBuffer!!.buffer, outputProbabilityBuffer!!.buffer.rewind())
         } catch (e: Exception) {
             e.printStackTrace()
-            e.message?.let { displayExceptionMessage(it) }
+            e.message?.let { displayMessage(it) }
         }
     }
 
-    private fun displayExceptionMessage(message: String) {
+    private fun displayMessage(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
@@ -215,7 +221,7 @@ class PhotoFragment : Fragment() {
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            e.message?.let { displayExceptionMessage(it) }
+            e.message?.let { displayMessage(it) }
         }
     }
 
@@ -257,7 +263,7 @@ class PhotoFragment : Fragment() {
                     loadGlideImage(bitmap)
                 } catch (e: IOException) {
                     e.printStackTrace()
-                    e.message?.let { displayExceptionMessage(it) }
+                    e.message?.let { displayMessage(it) }
                 }
             } else if (requestCode == REQUEST_IMAGE_CAPTURE) {
                 try {
@@ -265,7 +271,7 @@ class PhotoFragment : Fragment() {
                     loadGlideImage(bitmap)
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    e.message?.let { displayExceptionMessage(it) }
+                    e.message?.let { displayMessage(it) }
                 }
             }
         }
@@ -277,6 +283,25 @@ class PhotoFragment : Fragment() {
             .load(bitmap)
             .apply(RequestOptions())
             .into(binding.photo)
+    }
+
+    private fun saveData() {
+        val histories: MutableMap<String, Any> = HashMap()
+
+        val alphabet = binding.tvResult.text.toString().toUpperCase(Locale.ROOT)
+        val date = DateHelper.getCurrentDate()
+
+        histories["alphabet"] = alphabet
+        histories["date"] = date
+
+        db.collection("histories")
+            .add(histories)
+            .addOnSuccessListener {
+                displayMessage("Data added successfully")
+            }
+            .addOnFailureListener {
+                displayMessage("Data failed to add")
+            }
     }
 
     override fun onDestroy() {

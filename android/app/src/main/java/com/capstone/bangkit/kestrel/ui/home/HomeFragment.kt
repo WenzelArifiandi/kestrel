@@ -27,10 +27,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         list.addAll(AlphabetData.listData)
-        showRecycleView()
+        showRecyclerView()
     }
 
-    private fun showRecycleView() {
+    private fun showRecyclerView() {
         binding.rvAlphabet.layoutManager = GridLayoutManager(context, 2)
         val listAlphabet = AlphabetAdapter(list)
         binding.rvAlphabet.adapter = listAlphabet

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#faf9f7"
     android:orientation="vertical">
 
     <View
@@ -48,12 +48,12 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="120dp">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_history"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingBottom="80dp"
