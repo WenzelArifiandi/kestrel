@@ -124,7 +124,9 @@ class PhotoFragment : Fragment() {
         }
 
         try {
-            tflite = Interpreter(loadModel(requireActivity()))
+            if (bitmap != null) {
+                tflite = Interpreter(loadModel(requireActivity()))
+            }
         } catch (e: Exception) {
             e.printStackTrace()
             e.message?.let { displayMessage(it) }
@@ -294,14 +296,18 @@ class PhotoFragment : Fragment() {
         histories["alphabet"] = alphabet
         histories["date"] = date
 
-        db.collection("histories")
-            .add(histories)
-            .addOnSuccessListener {
-                displayMessage("Data added successfully")
-            }
-            .addOnFailureListener {
-                displayMessage("Data failed to add")
-            }
+        if (alphabet.isEmpty()) {
+            displayMessage("Result is empty")
+        } else {
+            db.collection("histories")
+                .add(histories)
+                .addOnSuccessListener {
+                    displayMessage("Data added successfully")
+                }
+                .addOnFailureListener {
+                    displayMessage("Data failed to add")
+                }
+        }
     }
 
     override fun onDestroy() {
