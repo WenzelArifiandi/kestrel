@@ -123,21 +123,12 @@ class PhotoFragment : Fragment() {
             openActionGetContent()
         }
 
-        try {
-            if (bitmap != null) {
-                tflite = Interpreter(loadModel(requireActivity()))
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            e.message?.let { displayMessage(it) }
-        }
-
         binding.btnProcess.setOnClickListener {
+            checkImageNotNull()
             processImage()
             showResult()
             saveData()
         }
-
     }
 
     @SuppressLint("QueryPermissionsNeeded")
@@ -283,7 +274,10 @@ class PhotoFragment : Fragment() {
         Glide.with(requireActivity())
             .asBitmap()
             .load(bitmap)
-            .apply(RequestOptions())
+            .apply(
+                RequestOptions.placeholderOf(R.drawable.ic_loading)
+                    .error(R.drawable.ic_error)
+            )
             .into(binding.photo)
     }
 
@@ -297,7 +291,7 @@ class PhotoFragment : Fragment() {
         histories["date"] = date
 
         if (alphabet.isEmpty()) {
-            displayMessage("Result is empty")
+            displayMessage("Data is empty")
         } else {
             db.collection("histories")
                 .add(histories)
@@ -307,6 +301,17 @@ class PhotoFragment : Fragment() {
                 .addOnFailureListener {
                     displayMessage("Data failed to add")
                 }
+        }
+    }
+
+    private fun checkImageNotNull() {
+        try {
+            if (binding.photo.drawable != null) {
+                tflite = Interpreter(loadModel(requireActivity()))
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            e.message?.let { displayMessage(it) }
         }
     }
 
