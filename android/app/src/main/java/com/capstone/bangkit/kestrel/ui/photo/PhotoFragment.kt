@@ -21,6 +21,7 @@ import com.capstone.bangkit.kestrel.R
 import com.capstone.bangkit.kestrel.databinding.FragmentPhotoBinding
 import com.capstone.bangkit.kestrel.helper.DateHelper
 import com.google.firebase.firestore.FirebaseFirestore
+import es.dmoral.toasty.Toasty
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.support.common.FileUtil
@@ -82,7 +83,7 @@ class PhotoFragment : Fragment() {
         private const val PROBABILITY_STD = 255.0f
     }
 
-    private var tflite: Interpreter? = null
+    private var tfLite: Interpreter? = null
     private var inputImageBuffer: TensorImage? = null
     private var imageSizeX = 0
     private var imageSizeY = 0
@@ -147,29 +148,33 @@ class PhotoFragment : Fragment() {
         try {
             val imageTensorIndex = 0
             val imageShape: IntArray =
-                tflite?.getInputTensor(imageTensorIndex)!!.shape()
+                tfLite?.getInputTensor(imageTensorIndex)!!.shape()
             imageSizeY = imageShape[1]
             imageSizeX = imageShape[2]
-            val imageDataType: DataType = tflite?.getInputTensor(imageTensorIndex)!!.dataType()
+            val imageDataType: DataType = tfLite?.getInputTensor(imageTensorIndex)!!.dataType()
             val probabilityTensorIndex = 0
             val probabilityShape: IntArray =
-                tflite?.getOutputTensor(probabilityTensorIndex)!!.shape()
+                tfLite?.getOutputTensor(probabilityTensorIndex)!!.shape()
             val probabilityDataType: DataType =
-                tflite?.getOutputTensor(probabilityTensorIndex)!!.dataType()
+                tfLite?.getOutputTensor(probabilityTensorIndex)!!.dataType()
             inputImageBuffer = TensorImage(imageDataType)
             outputProbabilityBuffer =
                 TensorBuffer.createFixedSize(probabilityShape, probabilityDataType)
             probabilityProcessor = TensorProcessor.Builder().add(postProcessNormalizeOp).build()
             inputImageBuffer = loadImage(bitmap)
-            tflite?.run(inputImageBuffer!!.buffer, outputProbabilityBuffer!!.buffer.rewind())
+            tfLite?.run(inputImageBuffer!!.buffer, outputProbabilityBuffer!!.buffer.rewind())
         } catch (e: Exception) {
             e.printStackTrace()
-            e.message?.let { displayMessage(it) }
+            e.message?.let { displayErrorMessage(it) }
         }
     }
 
-    private fun displayMessage(message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    private fun displaySuccessMessage(message: String) {
+        Toasty.success(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun displayErrorMessage(message: String) {
+        Toasty.error(requireContext(), message, Toast.LENGTH_SHORT, true).show()
     }
 
     private fun openActionGetContent() {
@@ -214,7 +219,7 @@ class PhotoFragment : Fragment() {
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            e.message?.let { displayMessage(it) }
+            e.message?.let { displayErrorMessage(it) }
         }
     }
 
@@ -256,7 +261,7 @@ class PhotoFragment : Fragment() {
                     loadGlideImage(bitmap)
                 } catch (e: IOException) {
                     e.printStackTrace()
-                    e.message?.let { displayMessage(it) }
+                    e.message?.let { displayErrorMessage(it) }
                 }
             } else if (requestCode == REQUEST_IMAGE_CAPTURE) {
                 try {
@@ -264,7 +269,7 @@ class PhotoFragment : Fragment() {
                     loadGlideImage(bitmap)
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    e.message?.let { displayMessage(it) }
+                    e.message?.let { displayErrorMessage(it) }
                 }
             }
         }
@@ -291,15 +296,15 @@ class PhotoFragment : Fragment() {
         histories["date"] = date
 
         if (alphabet.isEmpty()) {
-            displayMessage("Data is empty")
+            displayErrorMessage("Select the image")
         } else {
             db.collection("histories")
                 .add(histories)
                 .addOnSuccessListener {
-                    displayMessage("Data added successfully")
+                    displaySuccessMessage("Data added successfully")
                 }
                 .addOnFailureListener {
-                    displayMessage("Data failed to add")
+                    displayErrorMessage("Data failed to add")
                 }
         }
     }
@@ -307,11 +312,11 @@ class PhotoFragment : Fragment() {
     private fun checkImageNotNull() {
         try {
             if (binding.photo.drawable != null) {
-                tflite = Interpreter(loadModel(requireActivity()))
+                tfLite = Interpreter(loadModel(requireActivity()))
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            e.message?.let { displayMessage(it) }
+            e.message?.let { displayErrorMessage(it) }
         }
     }
 
