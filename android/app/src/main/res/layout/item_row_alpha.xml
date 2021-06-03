@@ -31,6 +31,7 @@
                 android:layout_gravity="start"
                 android:fontFamily="@font/poppins_medium"
                 android:padding="10dp"
+                android:textColor="@color/textColor"
                 android:text="@string/a"
                 android:textSize="28sp" />
         </FrameLayout>

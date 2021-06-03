@@ -106,6 +106,7 @@
                     android:textAllCaps="true"
                     android:textSize="36sp"
                     android:textStyle="bold"
+                    android:textColor="@color/textColor"
                     app:layout_constraintBottom_toTopOf="@+id/guideline3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

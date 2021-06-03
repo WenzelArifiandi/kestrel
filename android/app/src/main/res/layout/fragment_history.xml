@@ -73,6 +73,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/history_not_found"
                     android:fontFamily="@font/montserrat"
+                    android:textColor="@color/textColor"
                     android:textSize="20sp"
                     android:gravity="center"/>
 

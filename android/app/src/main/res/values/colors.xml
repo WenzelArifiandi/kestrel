@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="placeholder">#6FB6B6B6</color>
     <color name="box">#CF973E</color>
+    <color name="textColor">#6B736C</color>
 </resources>
