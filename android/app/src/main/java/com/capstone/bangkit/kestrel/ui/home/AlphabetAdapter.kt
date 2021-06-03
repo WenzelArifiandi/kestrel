@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.capstone.bangkit.kestrel.R
 import com.capstone.bangkit.kestrel.databinding.ItemRowAlphaBinding
 
 class AlphabetAdapter(private val listAlpha: ArrayList<Alphabet>) :
@@ -27,7 +28,8 @@ class AlphabetAdapter(private val listAlpha: ArrayList<Alphabet>) :
             with(binding) {
                 Glide.with(itemView.context)
                     .load(alphabet.image)
-                    .apply(RequestOptions())
+                    .apply(RequestOptions.placeholderOf(R.drawable.ic_loading)
+                        .error(R.drawable.ic_error))
                     .into(imgItemAlpha)
 
                 tvItemName.text = alphabet.name
