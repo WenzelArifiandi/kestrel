@@ -36,7 +36,6 @@ class HistoryFragment : Fragment() {
     }
 
     private fun showRecyclerView() {
-
         if(list.isEmpty()) {
             binding.layoutEmpty.isVisible = true
         } else {

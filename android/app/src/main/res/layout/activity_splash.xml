@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/image_splash"
-        android:layout_width="250dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="200dp"
         android:contentDescription="@string/hand_back"
@@ -21,9 +21,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/port_lligat_sans"
+        android:letterSpacing="0.15"
         android:gravity="center"
         android:text="@string/kestrel"
         android:textColor="@color/white"
-        android:textSize="48sp" />
+        android:textSize="60sp" />
 
 </LinearLayout>
