@@ -5,6 +5,13 @@ Kestrel is a TensorFlow-powered American Sign Language fingerspelling translator
 
 <a href="https://colab.research.google.com/github/WenzelArifiandi/kestrel/blob/main/TensorFlow/Kestrel%2BModel%2BPure200.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
+### Update
+
+Kestrel is now a part of my thesis research. The app is updated with:
+
+A brand new simplified user interface that instantly shows the viewfinder's live view and the top 5 fingerspelling results.
+A new MobileNetV2 model trained on a new dataset, with 50% more detection categories (36 labels containing 26 alphabets and ten numbers).
+
 ### Android App Screenshots
 
 ![Screenshots](assets/Combined.png)
