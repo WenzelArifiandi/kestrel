@@ -27,7 +27,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#8000"
+        android:background="#4B220059"
         android:orientation="horizontal">
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_weight="2"
             android:padding="8dp"
             android:text="@{recognitionItem.label}"
-            android:textColor="@color/white"
+            android:textColor="#FFFFFF"
             android:textAppearance="?attr/textAppearanceHeadline6"
             tools:text="Orange" />
 
@@ -49,7 +49,7 @@
             android:gravity="end"
             android:padding="8dp"
             android:text="@{recognitionItem.probabilityString}"
-            android:textColor="@color/white"
+            android:textColor="#FFFFFF"
             android:textAppearance="?attr/textAppearanceHeadline6"
             tools:text="99%" />
 
