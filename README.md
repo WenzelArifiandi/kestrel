@@ -18,7 +18,7 @@ Kestrel is now a part of my thesis research. The app is updated with:
 ![Screenshots](assets/Kestrel_UI_Combined_JPG.jpg)
 
 ## Bangkit [v1.0-alpha] 
-The Kestrel model is (95.2% testing accuracy, 98.16% training accuracy and 95.3% validation accuracy) trained on 65.574 color images (comprising 24 static alphabet signs) from the [American Sign Language FingerSpelling Dataset](https://ieeexplore.ieee.org/document/6130290) published by Nicolas Pugeault and Richard Bowden on the 2011 IEEE International Conference on Computer Vision Workshops. 
+The Kestrel model (95.2% testing accuracy, 98.16% training accuracy and 95.3% validation accuracy) is trained on 65.574 color images (comprising 24 static alphabet signs) from the [American Sign Language FingerSpelling Dataset](https://ieeexplore.ieee.org/document/6130290) published by Nicolas Pugeault and Richard Bowden on the 2011 IEEE International Conference on Computer Vision Workshops. 
 
 ### User Interface
 ![Screenshots](assets/Combined.png)
