@@ -28,3 +28,5 @@ The Kestrel model (95.2% testing accuracy, 98.16% training accuracy and 95.3% va
 
 ### Colab
 <a href="https://colab.research.google.com/github/WenzelArifiandi/kestrel/blob/main/TensorFlow/Kestrel%2BModel%2BPure200.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+Google Play and the Google Play logo are trademarks of Google LLC.
