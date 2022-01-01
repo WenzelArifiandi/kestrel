@@ -1,6 +1,8 @@
 # Kestrel
 ### A [Bangkit 2021](https://grow.google/intl/id_id/bangkit/) Capstone Project
 
+![Screenshots](assets/Kestrel_Feature_Graphics.png)
+
 Kestrel is a [TensorFlow](https://www.tensorflow.org/about) powered [American Sign Language](https://www.nidcd.nih.gov/health/american-sign-language) fingerspelling translator [Android app](https://play.google.com/store/apps/details?id=com.wenzelarifiandi.kestrel&utm_source=github&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) that serves as a convenient way to learn and understand fingerspelling signs. The [Kestrel model](https://colab.research.google.com/drive/1DQjkQ1spF1PyN7fWzvURB4uP9T2OxgAp?usp=sharing) builds upon the state of the art [MobileNetV2](https://arxiv.org/abs/1801.04381) model that is optimized for speed and latency on mobile devices to accurately recognize and interpret sign language from the phone’s camera with a 96.8% testing accuracy (99.60% training accuracy, 98.66% validation accuracy) and display its translation through a beautiful, convenient and easily accessible [Android app](https://play.google.com/store/apps/details?id=com.wenzelarifiandi.kestrel&utm_source=github&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1). 
 
 ## Thesis Research [v2.0]
