@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "672193834697",
+    "project_id": "kestrel-8",
+    "storage_bucket": "kestrel-8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672193834697:android:c236059e7c484629c2a718",
+        "android_client_info": {
+          "package_name": "com.wenzelarifiandi.kestrel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672193834697-tu7571sqh7pk57piige1r13o365sd6bo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wenzelarifiandi.kestrel",
+            "certificate_hash": "4273bcba9a7b274d2bc51e8b581bca703ef65fff"
+          }
+        },
+        {
+          "client_id": "672193834697-7l3umoelcasrid96052lomttt0ibubng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuAADiEeME0g5_CzldQwR6Pha-1N5lkeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672193834697-7l3umoelcasrid96052lomttt0ibubng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

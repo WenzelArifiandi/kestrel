@@ -36,6 +36,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.analytics.FirebaseAnalytics
 import org.tensorflow.lite.examples.classification.ml.KestrelModel
 import org.tensorflow.lite.examples.classification.ui.RecognitionAdapter
 import org.tensorflow.lite.examples.classification.util.YuvToRgbConverter
@@ -54,6 +55,13 @@ private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA) // permis
 
 // Listener for the result of the ImageAnalyzer
 typealias RecognitionListener = (recognition: List<Recognition>) -> Unit
+
+/**
+ * The `FirebaseAnalytics` used to record screen views.
+ */
+// [START declare_analytics]
+private lateinit var firebaseAnalytics: FirebaseAnalytics
+// [END declare_analytics]
 
 /**
  * Main entry point into TensorFlow Lite Classifier
