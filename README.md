@@ -14,6 +14,7 @@ Kestrel is now a part of my thesis research. The app is updated with:
 <a href="https://colab.research.google.com/drive/1DQjkQ1spF1PyN7fWzvURB4uP9T2OxgAp?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ### Now available on Google Play
+#### Available to internal testers
 <a href='https://play.google.com/store/apps/details?id=com.wenzelarifiandi.kestrel&utm_source=github&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://github.com/WenzelArifiandi/kestrel/blob/main/assets/google-play-badge-mini-new.png'/></a>
 
 ### Updated User Interface
