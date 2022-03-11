@@ -17,8 +17,8 @@ Kestrel is now a part of my thesis research. The app is updated with:
 <a href='https://play.google.com/store/apps/details?id=com.wenzelarifiandi.kestrel&utm_source=github&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://github.com/WenzelArifiandi/kestrel/blob/main/assets/google-play-badge-mini-new.png'/></a>
 
 ### Thesis Documents
-[English - Machine Translated Copy](http://dx.doi.org/10.13140/RG.2.2.32801.68963)<br />
-[Bahasa Indonesia - Original Copy](http://dx.doi.org/10.13140/RG.2.2.21057.63840)
+[English - Machine Translated Copy](http://dx.doi.org/10.13140/RG.2.2.32801.68963/1)<br />
+[Bahasa Indonesia - Original Copy](http://dx.doi.org/10.13140/RG.2.2.21057.63840/2)
 
 ### Updated User Interface
 ![Updated UI Screenshots](assets/Kestrel_UI_Combined_JPG.jpg)
