@@ -71,7 +71,7 @@ pip-review==1.1.0
 prometheus-client==0.11.0
 promise==2.3
 prompt-toolkit==3.0.18
-protobuf==3.17.2
+protobuf==3.18.3
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser==2.20
